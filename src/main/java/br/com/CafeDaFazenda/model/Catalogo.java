@@ -3,20 +3,16 @@ package br.com.CafeDaFazenda.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
-import java.math.BigInteger;
-
 
 @Entity
 @Table(name = "catalogo")
 public class Catalogo {
 
-    @id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-
+    private Long id;
 
     private Integer codigo;
     private String produto;
@@ -25,11 +21,14 @@ public class Catalogo {
     private String datetime;
     private String ativo;
 
+    // Construtor vazio
+    public Catalogo() {
+    }
 
-    //constructor
-
-
-    public Catalogo(int id, Integer codigo, String produto, String descricao, String valor, String datetime, String ativo) {
+    // Construtor completo
+    public Catalogo(Long id, Integer codigo, String produto,
+                    String descricao, String valor,
+                    String datetime, String ativo) {
         this.id = id;
         this.codigo = codigo;
         this.produto = produto;
@@ -39,60 +38,58 @@ public class Catalogo {
         this.ativo = ativo;
     }
 
-    //getter
+    // Getters e Setters
 
-    public int getId() {
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Integer getCodigo() {
         return codigo;
     }
 
-    public String getProduto() {
-        return produto;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public String getValor() {
-        return valor;
-    }
-
-    public String getDatetime() {
-        return datetime;
-    }
-
-    public String getAtivo() {
-        return ativo;
-    }
-
-    //setter
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setCodigo(Integer codigo) {
         this.codigo = codigo;
+    }
+
+    public String getProduto() {
+        return produto;
     }
 
     public void setProduto(String produto) {
         this.produto = produto;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getValor() {
+        return valor;
     }
 
     public void setValor(String valor) {
         this.valor = valor;
     }
 
+    public String getDatetime() {
+        return datetime;
+    }
+
     public void setDatetime(String datetime) {
         this.datetime = datetime;
+    }
+
+    public String getAtivo() {
+        return ativo;
     }
 
     public void setAtivo(String ativo) {

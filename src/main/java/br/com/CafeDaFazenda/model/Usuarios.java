@@ -6,99 +6,101 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 
 @Entity
-@Table(name ="usuarios")
+@Table(name = "usuarios")
 public class Usuarios {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    public long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private Integer resgistro;
-    @Column (length = 80)
+    private Integer registro;
+
+    @Column(length = 80)
     private String nome;
-    @Column (length = 40)
+
+    @Column(length = 40)
     private String email;
-    @Column (length = 10)
+
+    @Column(length = 100)
     private String senha;
-    @DateTimeFormat (style = "yyyy-mm-dd")
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataAdmissao;
+
     private Boolean ativo;
 
-    //Constructor
+    // Construtor vazio
     public Usuarios() {
-
     }
 
-    public Usuarios(long id, Integer resgistro, String senha, Boolean ativo, LocalDate dataAdmissao, String email, String nome) {
+    // Construtor completo
+    public Usuarios(Long id, Integer registro, String nome,
+                    String email, String senha,
+                    LocalDate dataAdmissao, Boolean ativo) {
         this.id = id;
-        this.resgistro = resgistro;
-        this.senha = senha;
-        this.ativo = ativo;
-        this.dataAdmissao = dataAdmissao;
-        this.email = email;
+        this.registro = registro;
         this.nome = nome;
-    }
-
-    //Setters
-
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setResgistro(Integer resgistro) {
-        this.resgistro = resgistro;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public void setDataAdmissao(LocalDate dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
-    }
-
-    public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
 
+    // Getters e Setters
 
-    //Getters
-
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public Integer getResgistro() {
-        return resgistro;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getRegistro() {
+        return registro;
+    }
+
+    public void setRegistro(Integer registro) {
+        this.registro = registro;
     }
 
     public String getNome() {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {
         return senha;
     }
 
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public LocalDate getDataAdmissao() {
         return dataAdmissao;
     }
 
+    public void setDataAdmissao(LocalDate dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
+    }
+
     public Boolean getAtivo() {
         return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
     }
 }

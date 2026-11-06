@@ -1,10 +1,11 @@
-    package br.com.CafeDaFazenda.repository;
+package br.com.CafeDaFazenda.repository;
 
-    import br.com.CafeDaFazenda.model.Catalogo;
-    import org.springframework.data.jpa.repository.JpaRepository;
-    import org.springframework.stereotype.Repository;
+import br.com.CafeDaFazenda.model.Catalogo;
 
-    @Repository
-    public interface CatalogoRepository extends JpaRepository<Catalogo, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-    }
+@Repository
+public interface CatalogoRepository extends JpaRepository<Catalogo, Long> {
+
+}
